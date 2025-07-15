@@ -1,63 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>profanity-nsfw-violence-checker - README</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .container {
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    h1, h2, h3, h4 {
-      color: #222;
-      border-bottom: 1px solid #eaecef;
-      padding-bottom: 0.3em;
-    }
-    code {
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 0.95em;
-    }
-    pre {
-      background-color: #2d2d2d;
-      color: #eee;
-      padding: 1em;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px 12px;
-      text-align: left;
-    }
-    th {
-      background-color: #f4f4f4;
-    }
-    a img {
-      margin-right: 10px;
-    }
-  </style>
-</head>
-<body>
   <div class="container">
     <h1><code>profanity-nsfw-violence-checker</code></h1>
-
     <p>
       <a href="https://www.npmjs.com/package/profanity-nsfw-violence-checker">
         <img src="https://img.shields.io/npm/v/profanity-nsfw-violence-checker.svg" alt="npm version" />
@@ -159,5 +101,3 @@ new ProfanityChecker({
     <h2>📄 License</h2>
     <p>This project is licensed under the <a href="https://github.com/victorolayemi/profanity-nsfw-violence-checker/blob/main/LICENSE">MIT License</a>.</p>
   </div>
-</body>
-</html>

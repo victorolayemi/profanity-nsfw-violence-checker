@@ -1,6 +1,6 @@
 {
   "name": "profanity-nsfw-violence-checker",
-  "version": "1.0.0",
+  "version": "1.0.01",
   "description": "A powerful TypeScript library to detect and censor profanity, sexual content, violence, and hate speech in both plain text and HTML.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
