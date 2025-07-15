@@ -1,0 +1,56 @@
+{
+  "name": "profanity-nsfw-violence-checker",
+  "version": "1.0.0",
+  "description": "A powerful TypeScript library to detect and censor profanity, sexual content, violence, and hate speech in both plain text and HTML.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "keywords": [
+    "profanity",
+    "censorship",
+    "text moderation",
+    "content moderation",
+    "nsfw",
+    "violence",
+    "sexual content",
+    "hate speech",
+    "censor",
+    "text analysis",
+    "offensive language",
+    "moderation",
+    "typescript",
+    "html sanitizer",
+    "text filter",
+    "bad words",
+    "safe text",
+    "filter"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.31",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.14.9",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.5.3"
+  },
+
+  "license": "MIT",
+  "author": "Victor Olayemi <victorolayemi@users.noreply.github.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victorolayemi/profanity-nsfw-violence-checker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/victorolayemi/profanity-nsfw-violence-checker/issues"
+  },
+  "homepage": "https://github.com/victorolayemi/profanity-nsfw-violence-checker#readme"
+
+}
