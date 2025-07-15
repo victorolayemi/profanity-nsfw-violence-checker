@@ -1,103 +1,163 @@
-  <div class="container">
-    <h1><code>profanity-nsfw-violence-checker</code></h1>
-    <p>
-      <a href="https://www.npmjs.com/package/profanity-nsfw-violence-checker">
-        <img src="https://img.shields.io/npm/v/profanity-nsfw-violence-checker.svg" alt="npm version" />
-      </a>
-      <a href="https://www.npmjs.com/package/profanity-nsfw-violence-checker">
-        <img src="https://img.shields.io/npm/dm/profanity-nsfw-violence-checker.svg" alt="npm downloads" />
-      </a>
-      <a href="https://github.com/victorolayemi/profanity-nsfw-violence-checker/blob/main/LICENSE">
-        <img src="https://img.shields.io/npm/l/profanity-nsfw-violence-checker.svg" alt="license" />
-      </a>
-      <a href="https://img.shields.io/bundlephobia/minzip/profanity-nsfw-violence-checker">
-        <img src="https://img.shields.io/bundlephobia/minzip/profanity-nsfw-violence-checker" alt="bundle size" />
-      </a>
-      <a href="https://www.typescriptlang.org">
-        <img src="https://img.shields.io/badge/TypeScript-supported-blue.svg" alt="TypeScript" />
-      </a>
-    </p>
+<h1>🛡️ profanity-nsfw-violence-checker</h1>
 
-    <p><strong>A powerful TypeScript library to detect and censor profanity, sexual content, violence, and hate speech in both plain text and HTML.</strong></p>
+<p>
+  A robust and customizable TypeScript/JavaScript library for detecting and censoring profanity, sexual content, violence, and hate speech in plain text and HTML.
+</p>
 
-    <h2>✨ Features</h2>
-    <ul>
-      <li>✅ Categorized detection: <strong>profanity</strong>, <strong>sexual</strong>, <strong>violence</strong>, and <strong>hate speech</strong>.</li>
-      <li>🚨 Severity-based classification: <code>low</code>, <code>medium</code>, <code>high</code>.</li>
-      <li>💬 Leetspeak & character normalization support (e.g. <code>f*ck</code>, <code>s3x</code>).</li>
-      <li>🧼 HTML-safe censoring that preserves tag structure.</li>
-      <li>🧩 Extensible via <code>addWords</code>, <code>removeWords</code>, and <code>addToWhitelist</code>.</li>
-      <li>🔒 Whitelist control to skip flagged terms contextually.</li>
-      <li>🔧 Strict vs. non-strict (exact match) modes.</li>
-      <li>🧠 Written in TypeScript with full type support.</li>
-    </ul>
+<p>
+  <a href="https://www.npmjs.com/package/profanity-nsfw-violence-checker">
+    <img src="https://img.shields.io/npm/v/profanity-nsfw-violence-checker.svg" alt="npm version" />
+  </a>
+  <a href="https://www.npmjs.com/package/profanity-nsfw-violence-checker">
+    <img src="https://img.shields.io/npm/dm/profanity-nsfw-violence-checker.svg" alt="npm downloads" />
+  </a>
+  <a href="https://github.com/victorolayemi/profanity-nsfw-violence-checker/blob/main/LICENSE">
+    <img src="https://img.shields.io/npm/l/profanity-nsfw-violence-checker.svg" alt="license" />
+  </a>
+</p>
 
-    <h2>📦 Installation</h2>
-    <pre><code>npm install profanity-nsfw-violence-checker</code></pre>
-    <pre><code>yarn add profanity-nsfw-violence-checker</code></pre>
+<hr />
 
-    <h2>🚀 Basic Usage</h2>
-    <pre><code class="language-typescript">import { ProfanityChecker } from 'profanity-nsfw-violence-checker';
+<h2>✨ Features</h2>
+<ul>
+  <li>🚨 Detects <strong>profanity, sexual content, violence, and hate speech</strong></li>
+  <li>🧠 Supports <strong>leetspeak & misspellings</strong> (e.g., <code>s3x</code>, <code>f@ck</code>)</li>
+  <li>🧪 Customizable <strong>severity levels</strong> (low/medium/high)</li>
+  <li>🛡️ Safe <strong>HTML censoring</strong> without breaking markup</li>
+  <li>📦 Built-in <strong>TypeScript types</strong> and full support</li>
+  <li>🧰 Add/remove words, enable <strong>whitelist</strong>, toggle <code>strictMode</code></li>
+</ul>
+
+<hr />
+
+<h2>📦 Installation</h2>
+
+<pre><code>npm install profanity-nsfw-violence-checker</code></pre>
+<pre><code>yarn add profanity-nsfw-violence-checker</code></pre>
+
+<hr />
+
+<h2>🚀 Quick Start</h2>
+
+<pre><code>import { ProfanityChecker } from 'profanity-nsfw-violence-checker';
 
 const checker = new ProfanityChecker();
-const result = checker.check("This is damn annoying and violent!");
 
+const result = checker.check("That fucking movie was damn violent!");
 console.log(result);
-console.log(checker.censor("This is damn annoying and violent!"));
+
+const censored = checker.censor("That fucking movie was damn violent!");
+console.log(censored); // That ******* movie was **** violent!
 </code></pre>
 
-    <h2>🖼 HTML Content Support</h2>
-    <p>Safely censor inner text without affecting the structure:</p>
-    <pre><code class="language-typescript">
-const html = '&lt;p&gt;This is &lt;strong&gt;damn&lt;/strong&gt; annoying.&lt;/p&gt;';
-const output = checker.censorHtml(html);
-console.log(output);
+<hr />
+
+<h2>🖼️ HTML Censoring</h2>
+
+<pre><code>const html = '&lt;p&gt;This is &lt;strong&gt;damn&lt;/strong&gt; violent.&lt;/p&gt;';
+const cleanHtml = checker.censorHtml(html);
+console.log(cleanHtml);
+// &lt;p&gt;This is &lt;strong&gt;****&lt;/strong&gt; violent.&lt;/p&gt;
 </code></pre>
 
-    <h2>⚙️ Configuration Options</h2>
-    <pre><code class="language-typescript">
-new ProfanityChecker({
+<hr />
+
+<h2>⚙️ Configuration</h2>
+
+<pre><code>const customChecker = new ProfanityChecker({
   censorCharacter: '#',
   strictMode: true,
   allowWhitelist: true,
   customWords: {
-    profanity: ['frick'],
-    violence: ['smash'],
-  },
-  severity: {
-    profanity: 'medium',
-    violence: 'high'
+    profanity: ['frick', 'dang'],
+    hateSpeech: ['subhuman']
   }
 });
 </code></pre>
 
-    <h2>📘 API Reference</h2>
-    <ul>
-      <li><code>check(text: string): CheckResult</code> - Analyze content and get detailed result.</li>
-      <li><code>censor(text: string): string</code> - Replace flagged words in plain text.</li>
-      <li><code>censorHtml(html: string): string</code> - HTML-safe censoring.</li>
-      <li><code>addWords(category, words, severity?)</code> - Add new words dynamically.</li>
-      <li><code>removeWords(category, words)</code> - Remove flagged words.</li>
-      <li><code>addToWhitelist(words)</code> - Prevent certain words from being flagged.</li>
-      <li><code>getStats()</code> - Return stats about current word lists.</li>
-    </ul>
+<hr />
 
-    <h3>Types</h3>
-    <table>
-      <thead>
-        <tr><th>Property</th><th>Type</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>originalText</code></td><td><code>string</code></td><td>The raw input text.</td></tr>
-        <tr><td><code>isFlagged</code></td><td><code>boolean</code></td><td>True if any category is flagged.</td></tr>
-        <tr><td><code>severity</code></td><td><code>'low' | 'medium' | 'high'</code></td><td>Highest severity matched.</td></tr>
-        <tr><td><code>matches</code></td><td><code>object</code></td><td>Matched terms categorized.</td></tr>
-      </tbody>
-    </table>
+<h2>📚 API Methods</h2>
+<ul>
+  <li><code>checker.check(text: string): CheckResult</code> → Analyze text and get details</li>
+  <li><code>checker.censor(text: string): string</code> → Censor words in plain text</li>
+  <li><code>checker.censorHtml(html: string): string</code> → Censor inside HTML safely</li>
+  <li><code>checker.addWords(category, words, severity?)</code> → Add words to a category</li>
+  <li><code>checker.removeWords(category, words)</code> → Remove words from category</li>
+  <li><code>checker.addToWhitelist(words)</code> → Exclude words from detection</li>
+  <li><code>checker.getStats()</code> → Dictionary stats (count per category)</li>
+</ul>
 
-    <h2>🙋 Contributing</h2>
-    <p>Pull requests and issues are welcome! Please make sure your changes are well-tested and linted.</p>
+<hr />
 
-    <h2>📄 License</h2>
-    <p>This project is licensed under the <a href="https://github.com/victorolayemi/profanity-nsfw-violence-checker/blob/main/LICENSE">MIT License</a>.</p>
-  </div>
+<h2>🧠 Supported Categories</h2>
+<ul>
+  <li><strong>profanity</strong>: e.g., f***, s***, etc.</li>
+  <li><strong>sexual</strong>: e.g., p***, blowjob, etc.</li>
+  <li><strong>violence</strong>: e.g., kill, stab, etc.</li>
+  <li><strong>hateSpeech</strong>: e.g., racial slurs, subhuman, etc.</li>
+</ul>
+
+<hr />
+
+<h2>🧪 TypeScript Support</h2>
+
+<pre><code>type Severity = 'low' | 'medium' | 'high';
+
+interface Match {
+  word: string;
+  position: number;
+  severity: Severity;
+  context: string;
+}
+
+interface CheckResult {
+  originalText: string;
+  isFlagged: boolean;
+  isProfane: boolean;
+  isSexual: boolean;
+  isViolent: boolean;
+  isHateSpeech: boolean;
+  severity: Severity;
+  matches: {
+    profanity: Match[];
+    sexual: Match[];
+    violence: Match[];
+    hateSpeech: Match[];
+  };
+}
+</code></pre>
+
+<hr />
+
+<h2>📈 Example Output</h2>
+
+<pre><code>{
+  isFlagged: true,
+  isProfane: true,
+  isSexual: false,
+  isViolent: true,
+  isHateSpeech: false,
+  severity: 'high',
+  matches: {
+    profanity: [{ word: 'fucking', position: 5, severity: 'high' }],
+    sexual: [],
+    violence: [{ word: 'violent', position: 42, severity: 'high' }],
+    hateSpeech: []
+  }
+}
+</code></pre>
+
+<hr />
+
+<h2>🙌 Contributions</h2>
+<p>
+  PRs and issues are welcome. Help improve detection accuracy, word lists, or features!
+</p>
+
+<hr />
+
+<h2>📄 License</h2>
+<p>
+  MIT License – Victor Olayemi
+</p>
